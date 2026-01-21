@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>User Activity Monitor</h2>
+<button onclick="exportLog()">Export</button>
+<button onclick="resetLog()">Reset</button>
+<ul id="log"></ul>
+
+<script>
+let activities = [];
+let clickCount = 0;
+
+function record(type) {
+  activities.push({type, time:new Date().toLocaleTimeString()});
+  log.innerHTML += `<li>${type}</li>`;
+}
+
+document.addEventListener("click", () => {
+  clickCount++;
+  record("Click");
+  if(clickCount > 10) alert("Suspicious Activity!");
+});
+
+document.addEventListener("keydown", ()=>record("Key Press"));
+document.addEventListener("focusin", ()=>record("Focus Change"));
+
+function exportLog() {
+  alert(JSON.stringify(activities, null, 2));
+}
+
+function resetLog() {
+  activities=[];
+  log.innerHTML="";
+  clickCount=0;
+}
+</script>
+</body>
+</html>

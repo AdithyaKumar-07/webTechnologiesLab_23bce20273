@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Adaptive Registration</title>
+  <style>
+    input, select { display:block; margin:8px 0; }
+    .error { color:red; font-size:12px; }
+    .hidden { display:none; }
+    .invalid { border:2px solid red; }
+  </style>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+<form id="regForm">
+  <input id="name" placeholder="Name">
+  <input id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+  <input type="password" id="confirm" placeholder="Confirm Password">
+  <input type="number" id="age" placeholder="Age">
+
+  <select id="role">
+    <option value="">Select Role</option>
+    <option>Student</option>
+    <option>Teacher</option>
+    <option>Admin</option>
+  </select>
+
+  <input id="skills" class="hidden" placeholder="Skills (comma separated)">
+  <div id="msg" class="error"></div>
+
+  <button type="submit">Register</button>
+</form>
+
+<script>
+const form = document.getElementById("regForm");
+const role = document.getElementById("role");
+const skills = document.getElementById("skills");
+const msg = document.getElementById("msg");
+
+role.onchange = () => {
+  skills.classList.toggle("hidden", role.value !== "Teacher");
+};
+
+function validEmail(email) {
+  return email.endsWith("@gmail.com") || email.endsWith("@edu.in");
+}
+
+function strongPassword(pwd, role) {
+  if (role === "Admin") return /(?=.*[A-Z])(?=.*\d)(?=.*[@#$]).{8,}/.test(pwd);
+  return pwd.length >= 6;
+}
+
+form.onsubmit = (e) => {
+  e.preventDefault();
+  msg.textContent = "";
+
+  const email = email.value;
+  const pwd = password.value;
+
+  if (!validEmail(email)) {
+    msg.textContent = "Invalid email domain";
+    return;
+  }
+
+  if (!strongPassword(pwd, role.value)) {
+    msg.textContent = "Weak password for selected role";
+    return;
+  }
+
+  if (pwd !== confirm.value) {
+    msg.textContent = "Passwords do not match";
+    return;
+  }
+
+  alert("Registration Successful!");
+};
+</script>
+</body>
+</html>

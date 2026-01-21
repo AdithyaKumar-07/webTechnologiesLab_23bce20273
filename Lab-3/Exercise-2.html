@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Shopping Cart</h2>
+<input id="coupon" placeholder="Coupon Code">
+<button onclick="applyCoupon()">Apply</button>
+
+<ul id="cart"></ul>
+<h3>Total: ₹<span id="total">0</span></h3>
+
+<script>
+let products = [
+  {name:"Laptop", price:50000, qty:1, category:"Electronics"},
+  {name:"Book", price:500, qty:3, category:"Education"}
+];
+
+let discount = 0;
+
+function render() {
+  let sum = 0;
+  cart.innerHTML = "";
+  products.forEach(p => {
+    let cost = p.price * p.qty;
+    sum += cost;
+    cart.innerHTML += `<li>${p.name} x ${p.qty} = ₹${cost}</li>`;
+  });
+
+  if (sum > 2000) discount += 10;
+  total.textContent = sum - discount;
+}
+
+function applyCoupon() {
+  let code = coupon.value.trim().toUpperCase();
+  if (code.startsWith("SAVE")) discount += 100;
+  render();
+}
+
+render();
+</script>
+</body>
+</html>
