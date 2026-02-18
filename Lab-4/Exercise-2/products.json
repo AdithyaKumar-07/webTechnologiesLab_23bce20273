@@ -1,0 +1,10 @@
+{
+  "products": [
+    {"name": "iPhone 14", "price": 70000, "category": "Mobile"},
+    {"name": "Samsung Galaxy S23", "price": 65000, "category": "Mobile"},
+    {"name": "Dell Laptop", "price": 55000, "category": "Electronics"},
+    {"name": "HP Laptop", "price": 52000, "category": "Electronics"},
+    {"name": "Boat Headphones", "price": 2000, "category": "Accessories"},
+    {"name": "Sony Earbuds", "price": 4500, "category": "Accessories"}
+  ]
+}

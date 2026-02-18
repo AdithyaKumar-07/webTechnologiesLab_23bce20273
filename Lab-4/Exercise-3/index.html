@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Management System</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, button { padding: 8px; margin: 5px; }
+    table { border-collapse: collapse; margin-top: 20px; width: 100%; }
+    table, th, td { border: 1px solid #ddd; padding: 10px; }
+    .success { color: green; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+
+<h2>Student Management System</h2>
+
+<form id="studentForm">
+  <input type="text" id="id" placeholder="Student ID" required>
+  <input type="text" id="name" placeholder="Name" required>
+  <input type="text" id="department" placeholder="Department" required>
+  <input type="number" id="marks" placeholder="Marks" required>
+
+  <button type="submit">Add Student</button>
+</form>
+
+<p id="message"></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Department</th>
+      <th>Marks</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody id="studentTable"></tbody>
+</table>
+
+<script src="script.js"></script>
+</body>
+</html>
