@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Management XML</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, button { padding: 8px; margin: 5px; }
+    table { border-collapse: collapse; margin-top: 20px; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 10px; }
+    .success { color: green; }
+    .error { color: red; }
+  </style>
+</head>
+
+<body>
+
+<h2>Employee Management System (XML)</h2>
+
+<form id="empForm">
+  <input type="text" id="empId" placeholder="Employee ID" required>
+  <input type="text" id="empName" placeholder="Name" required>
+  <input type="text" id="empDept" placeholder="Department" required>
+  <input type="number" id="empSalary" placeholder="Salary" required>
+  <button type="submit">Add Employee</button>
+</form>
+
+<p id="message"></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Department</th>
+      <th>Salary</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody id="empTable"></tbody>
+</table>
+
+<script src="script.js"></script>
+
+</body>
+</html>

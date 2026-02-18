@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library (root)>
+  <book>
+    <id>1</id>
+    <title>Clean Code</title>
+    <author>Robert Martin</author>
+    <status>Available</status>
+  </book>
+
+  <book>
+    <id>2</id>
+    <title>Data Structures</title>
+    <author>Mark Allen</author>
+    <status>Not Available</status>
+  </book>
+</library>

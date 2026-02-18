@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Inventory System</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, button { padding: 8px; margin: 5px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ddd; padding: 10px; }
+    .lowStock { background-color: #ffdddd; }
+    .success { color: green; }
+    .error { color: red; }
+  </style>
+</head>
+
+<body>
+
+<h2>Product Inventory System</h2>
+
+<form id="productForm">
+  <input type="text" id="id" placeholder="Product ID" required>
+  <input type="text" id="name" placeholder="Name" required>
+  <input type="text" id="category" placeholder="Category" required>
+  <input type="number" id="price" placeholder="Price" required>
+  <input type="number" id="stock" placeholder="Stock Quantity" required>
+  <button type="submit">Add Product</button>
+</form>
+
+<br>
+<input type="text" id="searchCategory" placeholder="Search by Category">
+<button onclick="searchProduct()">Search</button>
+
+<p id="message"></p>
+<h3>Total Inventory Value: ₹ <span id="totalValue">0</span></h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Price</th>
+      <th>Stock</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody id="inventoryTable"></tbody>
+</table>
+
+<script src="script.js"></script>
+</body>
+</html>
